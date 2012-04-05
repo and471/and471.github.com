@@ -1,0 +1,180 @@
+/* Modifications to main template */
+html, body {
+    height:100%;
+    overflow-y:hidden;
+}
+
+.clear { clear: both;}
+
+#SecondNavigation {
+    position:relative;
+    z-index:1;
+}
+
+.toggle-link {
+    text-decoration:underline;
+    float:right;
+    color:#fff
+}
+
+/* OpenGrok Logo */
+
+#opengrok-served-by {
+     float:right;
+     margin:20px
+}
+
+/* SearchBox */
+
+#opengrok-searchbox {
+    background-color:#f5f5f4;
+    box-shadow:0px 0px 5px rgba(0, 0, 0, 0.4);
+    position:relative;
+    margin:0px 5px;
+    top:-27px;
+    z-index:0;
+    overflow:hidden;
+}
+
+    #opengrok-searchbox form {
+        padding:15px;
+        height:100%
+    }
+    
+    #opengrok-searchbox #top {
+    }
+    
+    #opengrok-searchbox #bottom {
+        margin-top:10px
+    }
+
+/* Search Inputs */
+
+#opengrok-searchbox #search-inputs {
+    width:68%;
+    float:left;
+    height:100%
+}
+
+    #opengrok-searchbox #search-inputs .search-box {
+        clear:both;
+        height:26px;
+        margin-bottom:6px;
+    }
+
+        #opengrok-searchbox #search-inputs .search-box .search-type-selector  {
+            width:20%;
+            height:26px;
+            float:left;
+        }
+
+        #opengrok-searchbox #search-inputs .search-box .search-input  {
+            padding:0px 22px 0px 3px;
+            margin-left:-1px;
+            width:71%;
+            height:24px;
+            border-radius:0px;
+            border:1px solid #bdc3b7;
+            background:white;
+            float:left;
+            background:#fff none no-repeat right center
+        }
+        
+        #opengrok-searchbox #search-inputs .search-box a.button-remove   {
+            width:26px;
+            height:100%;
+            background:url(remove.png) no-repeat center;
+            float:left;
+        }
+
+        #opengrok-searchbox #search-inputs .search-box a.button-add   {
+            width:26px;
+            height:100%;
+            background:url(add.png) no-repeat center;
+            float:left;
+        }
+
+        #opengrok-searchbox #search-inputs .search-box.fake *[disabled] {
+            opacity:0.5;
+        }
+
+/* Sorting Options */
+
+#opengrok-searchbox #sorting-options {
+    float:left;
+    width:67%;
+    margin:2px 0px;
+}
+
+    #opengrok-searchbox #sorting-options label {
+        color:#2e3436;
+        font-size:90%;
+        padding-right:3px
+    }
+    
+    #opengrok-searchbox #sorting-options select {
+        height:26px
+    }
+    
+
+/* Search Locations */
+
+#opengrok-searchbox #search-locations {
+    width:30%;
+    float:right;
+    height:100%
+}
+
+    #opengrok-searchbox #search-locations > span {
+        font-weight:bold;
+        color:#2e3436;
+        font-size:90%;
+    }
+    
+    #opengrok-searchbox #search-locations #locations {
+        border:1px solid #d3d7cf;
+        background-color:#f8f8f7;
+        padding:6px;
+        margin-top:6px;
+        font-size:90%;
+        height:100%
+    }
+    
+        #opengrok-searchbox #search-locations #locations input[type=checkbox] {
+            margin:3px 2px;
+        }
+
+/* Search Button */
+
+#button-search {
+    background-color:#4ccb39;
+    background-image: -webkit-linear-gradient(bottom, rgb(66,190,47) 0%, rgb(95,225,75) 100%);
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.24);
+    display:block;
+    color:#fff;
+    font-weight:bold;
+    height:30px;
+    line-height:30px;
+    text-decoration:none;
+    width:30%;
+    float:right;
+    border:1px solid #1cbe03;
+    box-sizing:border-box
+}
+
+#button-search:hover {
+    text-decoration:none;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.4);
+}
+
+    #button-search span {
+        text-align: center;
+        display:block;
+        height:100%
+    }
+
+/* iFrame */
+#opengrok-frame {
+    width:100%;
+    border:0px;
+}
