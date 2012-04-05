@@ -4,6 +4,12 @@
     var searchbox_height = 0;
     var resize_timeout = undefined;
 
+    function preload(arrayOfImages) {
+        $(arrayOfImages).each(function() {
+            $('<img/>')[0].src = this;
+        });
+    }
+
     function on_window_resize() {
         if (resize_timeout != undefined) {
             clearTimeout(resize_timeout);
@@ -235,4 +241,7 @@
         
         window.onresize = on_window_resize;
         resize_iframe();
+        
+        // Preload images
+        preload(['clear.png', 'remove.png']);
     });
