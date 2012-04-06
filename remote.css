@@ -1,0 +1,11 @@
+body#remote {
+    background:transparent
+}
+
+body#remote #page {
+    width:100%
+}
+
+body#remote #header, body#remote #Masthead, body#remote #menu, body#remote #Footer {
+    display:none
+}

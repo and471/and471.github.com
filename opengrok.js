@@ -20,7 +20,7 @@
     }
     
     function resize_iframe(animate) {
-        var height_window = $("html").height();
+        var height_window = $("html").height() + 10;
         
         var height_remaining = height_window;
         if ($("#TopHeader").is(":visible")) {
