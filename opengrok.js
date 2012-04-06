@@ -1,4 +1,6 @@
     
+    var ANIMATION_DURATION = 400;
+    
     var visible = true;
     var opengrok_url = "";
     var searchbox_height = 0;
@@ -14,7 +16,7 @@
         if (resize_timeout != undefined) {
             clearTimeout(resize_timeout);
         }
-        resize_timeout = setTimeout("resize_iframe()", 500);
+        resize_timeout = setTimeout("resize_iframe(true)", 100);
     }
     
     function resize_iframe(animate) {
@@ -22,7 +24,7 @@
         var height_remaining = height_window - $("#BgContainer").height();
         
         if (animate == true) {
-            $("#opengrok-frame").animate({height: height_remaining}, 500);
+            $("#opengrok-frame").animate({height: height_remaining}, ANIMATION_DURATION);
             resize_timeout = undefined;
         } else {
             $("#opengrok-frame").css("height", height_remaining);
@@ -37,7 +39,7 @@
 
     function on_button_search_clicked() {
         // Reset URL
-        opengrok_url = "http://opengrok.libreoffice.org/search?";
+        opengrok_url = "http://opengrok.libreoffice.org/search?remote=true";
 
         query_empty = true;
 
@@ -152,18 +154,18 @@
             $(".search-box.fake").hide();
             $(search_box).show();
             $(".search-box.fake *[disabled]").css("opacity", 0);
-            $(".search-box.fake").slideDown(500)
-            $(".search-box.fake *[disabled]").animate({opacity:0.4}, {duration:500, queue:false});
+            $(".search-box.fake").slideDown(ANIMATION_DURATION)
+            $(".search-box.fake *[disabled]").animate({opacity:0.4}, {duration:ANIMATION_DURATION, queue:false});
         }
     }
     
     function remove_searchbox(search_box) {
-        $(search_box).slideUp(500);
+        $(search_box).slideUp(ANIMATION_DURATION);
     
         $(search_box).animate({
             opacity: "0",
         }, { 
-            duration: 500,
+            duration: ANIMATION_DURATION,
             queue: false,
             complete: function() {
                 $(search_box).remove();
@@ -193,12 +195,12 @@
                                $(".search-box.fake *[disabled]").stop();
                                $(".search-box.fake *[disabled]").animate({
                                    opacity:1
-                               }, 400);
+                               }, ANIMATION_DURATION);
                            }, function() {
                                $(".search-box.fake *[disabled]").stop();
                                $(".search-box.fake *[disabled]").animate({
                                    opacity:0.4
-                               }, 400);
+                               }, ANIMATION_DURATION);
                            });
 
         $('<div/>').addClass("clear")
@@ -221,14 +223,20 @@
         $(".toggle-link").click(function(e) {
             if (visible == true) {
                 searchbox_height = $("#opengrok-searchbox").height();
-                $("#opengrok-searchbox").animate({height:0}, 500);
+                $("#opengrok-searchbox").animate({height:0}, ANIMATION_DURATION, 
+                function() {
+                    resize_iframe(true)
+                });
+                $("#TopHeader").slideUp();
                 $(".toggle-link span").text("Show Search Box")
                 visible = false;
             } else {
-                $("#opengrok-searchbox").animate({height:searchbox_height}, 500, 
+                $("#opengrok-searchbox").animate({height:searchbox_height}, ANIMATION_DURATION, 
                 function() {
                     $("#opengrok-searchbox").css("height", "auto");
+                    resize_iframe(true);
                 });
+                $("#TopHeader").slideDown();
                 $(".toggle-link span").text("Hide Search Box")
                 visible = true;
             }

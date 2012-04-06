@@ -4,12 +4,21 @@ html, body {
     overflow-y:hidden;
 }
 
-.clear { clear: both;}
+#BottomHeader {
+    margin-bottom:0px;
+}
 
 #SecondNavigation {
     position:relative;
     z-index:1;
 }
+
+#SecondNavigation {
+    position:relative;
+    z-index:1;
+}
+
+.clear { clear: both;}
 
 .toggle-link {
     text-decoration:underline;
@@ -31,7 +40,7 @@ html, body {
     box-shadow:0px 0px 5px rgba(0, 0, 0, 0.4);
     position:relative;
     margin:0px 5px;
-    top:-27px;
+    top:-10px;
     z-index:0;
     overflow:hidden;
 }
@@ -175,6 +184,8 @@ html, body {
 
 /* iFrame */
 #opengrok-frame {
+    overflow-y: scroll;
     width:100%;
     border:0px;
+    margin-top: -10px;
 }
