@@ -185,6 +185,7 @@ html, body {
 /* iFrame */
 #opengrok-frame {
     overflow-y: scroll;
+    overflow-x: hidden;
     width:100%;
     border:0px;
     margin-top: -10px;

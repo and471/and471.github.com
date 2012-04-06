@@ -21,7 +21,17 @@
     
     function resize_iframe(animate) {
         var height_window = $("html").height();
-        var height_remaining = height_window - $("#BgContainer").height();
+        
+        var height_remaining = height_window;
+        if ($("#TopHeader").is(":visible")) {
+            height_remaining -= $("#TopHeader").outerHeight(true);
+        }
+        if ($("#BottomHeader").is(":visible")) {
+            height_remaining -= $("#BottomHeader").outerHeight(true);
+        }
+        if ($("#opengrok-searchbox").is(":visible")) {
+            height_remaining -= $("#opengrok-searchbox").outerHeight(true);
+        }
         
         if (animate == true) {
             $("#opengrok-frame").animate({height: height_remaining}, ANIMATION_DURATION);
